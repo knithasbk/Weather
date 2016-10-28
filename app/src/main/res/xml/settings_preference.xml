@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--EditTextPreference
+        android:title="Location"
+        android:key="location"
+        android:summary="Please provide your location ID "
+        android:defaultValue="569143"
+        /:-->
+    <CheckBoxPreference android:title="Notification "
+        android:defaultValue="false"
+        android:summary="This option if selected will allow the application to show notification"
+        android:key="notification" />
+    <ListPreference
+        android:title="Weather Unit"
+        android:summary="Select the kind of weather unit that you want to show"
+        android:key="weatherUnit"
+        android:defaultValue="metric"
+        android:entries="@array/listArray"
+        android:entryValues="@array/listValues" />
+    <ListPreference
+        android:title="Location"
+        android:entryValues="@array/locationValues"
+        android:entries="@array/locationList"
+        android:summary="Choose your location"
+        android:key="location_multi"
+        />
+</PreferenceScreen>

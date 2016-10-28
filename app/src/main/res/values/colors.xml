@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources
+    >
+
+    <color name="colorPrimaryDark">#292828</color>
+    <color name="colorPrimary">#3c3c40</color>
+
+    <color name="colorPrimary1">#d71f0e</color>
+    <color name="colorPrimaryDark1">#040741</color>
+    <color name="coloradgeItem">#040741</color>
+    <color name="textColorPrimary">#FFFFFF</color>
+    <color name="windowBackground">#FFFFFF</color>
+    <color name="navigationBarColor">#000000</color>
+    <color name="colorAccent">#000000</color>
+    <color name="blue">#3300ff</color>
+    <color name="blue1">#dc3300ff</color>
+    <color name="blue2">#a63300ff</color>
+    <color name="blue3">#953300ff</color>
+    <color name="blue4">#783300ff</color>
+    <color name="orange">#edffaa00</color>
+    <color name="orange1">#cdffaa00</color>
+    <color name="orange2">#aeffaa00</color>
+    <color name="orange3">#66ffaa00</color>
+    <color name="orange4">#4cffaa00</color>
+    <color name="orange5">#6cffaa00</color>
+    <color name="white">#ffffff</color>
+    <color name="white1">#f9f8f8</color>
+    <color name="white2">#ededed</color>
+    <color name="white3">#9f9f9f</color>
+    <color name="white4">#7c7b7b</color>
+
+
+
+
+
+    <color name="pink">#d414b7</color>
+    <color name="pink1">#c6d414b7</color>
+    <color name="pink2">#94d414b7</color>
+    <color name="pink3">#90d414b7</color>
+    <color name="pink4">#51d414b7</color>
+    
+    
+
+
+
+
+
+
+
+</resources>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="90dp"
+    android:background="@drawable/border_item"
+    android:orientation="horizontal"
+    >
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="2.50"
+        android:background="@drawable/border_sublayout"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1.2">
+
+            <TextView
+                android:id="@+id/text_view_day_of_week_item"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:fontFamily="sans-serif-condensed"
+                android:paddingLeft="8dp"
+                android:text="Monday"
+                android:textSize="17dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/text_view_day_of_month_item"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:fontFamily="sans-serif-condensed"
+                android:paddingLeft="8dp"
+                android:text="Oct 11"
+                android:textSize="17dp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/text_view_max_temperature_item"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2"
+            android:padding="4dp"
+            android:text="30 F"
+            android:textColor="@color/pink"
+            android:textSize="30dp" />
+
+        <TextView
+            android:id="@+id/text_view_day_status_item"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1.2"
+            android:gravity="center|left"
+            android:padding="2dp"
+            android:text="Today is a sunshine day" />
+
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/image_view_item"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@drawable/border_layout"
+     />
+
+</LinearLayout>
