@@ -5,6 +5,7 @@ import android.content.Context;
 import com.example.tm.weather.Model.SettingsPreferenceProvider;
 import com.example.tm.weather.R;
 
+import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
@@ -14,7 +15,7 @@ import java.util.Calendar;
 
 public class ConvertWeatherData {
     SettingsPreferenceProvider settingsPreferenceProvider;
-
+    static DecimalFormat df;
 
     public static int getIconResourceForWeatherCondition(int weatherId) {
         // Based on weather code data found at:
@@ -102,27 +103,35 @@ public class ConvertWeatherData {
     }
 
     public static double convertKelvinToCelsius(double kelvinTemp) {
-        return kelvinTemp - 273.15;
+        df = new DecimalFormat("###.#");
+        return Double.parseDouble(df.format(kelvinTemp - 273.15));
     }
+
 
     public static double convertKelvintoToFahrenheit(double kelvinTemp) {
-        return kelvinTemp * 9 / 5 - 459.67;
+        df = new DecimalFormat("###.#");
+
+        return Double.parseDouble(df.format(kelvinTemp * 9 / 5 - 459.67));
     }
 
-    public double ConvertTempUnit(Double kelvinTemp, Context context) {
+    public TempureUnit ConvertTempUnit(Double kelvinTemp, Context context) {
         settingsPreferenceProvider = new SettingsPreferenceProvider();
+        TempureUnit tempureUnit = new TempureUnit();
         double temp = 10;
+        String tempAnotation = "C";
         String tempUnit = settingsPreferenceProvider.getWeatherUnit(context);
-        if (tempUnit == "metric") {
+        if (tempUnit.equals("metric")) {
             temp = convertKelvinToCelsius(kelvinTemp);
-        } else if (tempUnit == "imperial") {
+            tempAnotation = "°C";
+            tempureUnit = new TempureUnit(temp,tempAnotation);
+        } else if (tempUnit.equals("imperial")) {
             temp = convertKelvintoToFahrenheit(kelvinTemp);
+           /*°F*/
+            tempAnotation = "°F";
+            tempureUnit = new TempureUnit(temp,tempAnotation);
+
         }
-        return  kelvinTemp;
-        /*
-        * TODO: handle for convert Temp unit
-        * */
-       //  return temp;
+        return tempureUnit;
 
     }
 

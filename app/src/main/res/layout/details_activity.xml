@@ -11,7 +11,7 @@
 
     <fragment
         android:id="@+id/details_activity_id"
-        class="com.example.tm.weather.View.DetailsActivity.DetailsFragment"
+        class="com.example.tm.weather.View.Details.DetailsFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:layout="@layout/details_fragment" />

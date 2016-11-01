@@ -1,4 +1,4 @@
-package com.example.tm.weather.View.DetailsActivity;
+package com.example.tm.weather.View.Details;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -14,6 +14,7 @@ import android.widget.TextView;
 import com.example.tm.weather.Model.SQLiteDatabase.SQLiteDatabaseProvider;
 import com.example.tm.weather.Model.WeatherDataItems;
 import com.example.tm.weather.Process.WeatherAPI.ConvertWeatherData;
+import com.example.tm.weather.Process.WeatherAPI.TempureUnit;
 import com.example.tm.weather.R;
 
 import java.util.ArrayList;
@@ -60,7 +61,6 @@ public class DetailsFragment extends Fragment {
 
         //   position = args.getInt("POSITION");
 
-        Log.i("TEST_TRACE", "Start OnCreateView in DetailsForecastFragment.class");
         Log.i("TEST_TRACE", "Position DetailsForecastFragment onCreateView " + String.valueOf(position));
 
         //arrayDataTest = new ArrayDataTest();
@@ -90,12 +90,15 @@ public class DetailsFragment extends Fragment {
         mtvDayOfWeek.setText(weatherDataItems.getmDayofWeek());
 
 
+        TempureUnit tempureUnitMax = convertWeatherData.ConvertTempUnit(weatherDataItems.getmMaxTemperure(), getActivity().getApplicationContext());
+        TempureUnit tempureUnitMin = convertWeatherData.ConvertTempUnit(weatherDataItems.getmMinTemperure(), getActivity().getApplicationContext());
+
         mtvDayOfMonth.setText(weatherDataItems.getmDayofMonth());
-        mtvHumidity.setText("Humnidity: " + String.valueOf(weatherDataItems.getmDateHumidity()));
+        mtvHumidity.setText("Humnidity: " + String.valueOf(weatherDataItems.getmDateHumidity()) + "%");
         mtvWindSpeed.setText("Wind Speed: " + String.valueOf(weatherDataItems.getmDateWindSpeed()));
         mtvImage.setImageResource(weatherDataItems.getmImageItem());
-        mtvMaxTemp.setText(String.valueOf(convertWeatherData.ConvertTempUnit(weatherDataItems.getmMaxTemperure(), getActivity().getApplicationContext())));
-        mtvMinTemp.setText(String.valueOf(convertWeatherData.ConvertTempUnit(weatherDataItems.getmMinTemperure(), getActivity().getApplicationContext())));
+        mtvMaxTemp.setText(String.valueOf(tempureUnitMax.getTemp()) + " " + tempureUnitMax.getUnitAnotation());
+        mtvMinTemp.setText(String.valueOf(tempureUnitMin.getTemp()) + " " + tempureUnitMin.getUnitAnotation());
         mtvPressue.setText("Pressure: " + String.valueOf(weatherDataItems.getmDatePressure()));
         mtvWeatherStatus.setText(weatherDataItems.getmDateStatusDescription());
         Log.i("TEST_TRACE", " Finish GetWeatherRecycleListDataConvertToDeatailView function on DetailsForecastAdapter.class");

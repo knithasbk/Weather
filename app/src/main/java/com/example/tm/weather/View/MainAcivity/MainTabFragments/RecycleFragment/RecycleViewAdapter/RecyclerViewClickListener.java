@@ -1,4 +1,4 @@
-package com.example.tm.weather.View.MainAcivity.RecycleViewAdapter;
+package com.example.tm.weather.View.MainAcivity.MainTabFragments.RecycleFragment.RecycleViewAdapter;
 
 import android.view.View;
 

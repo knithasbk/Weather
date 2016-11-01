@@ -1,4 +1,4 @@
-package com.example.tm.weather.View.MainAcivity.RecycleViewAdapter;
+package com.example.tm.weather.View.MainAcivity.MainTabFragments.RecycleFragment.RecycleViewAdapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.example.tm.weather.Model.SettingsPreferenceProvider;
 import com.example.tm.weather.Model.WeatherDataItems;
 import com.example.tm.weather.Process.WeatherAPI.ConvertWeatherData;
+import com.example.tm.weather.Process.WeatherAPI.TempureUnit;
 import com.example.tm.weather.R;
 
 import java.util.ArrayList;
@@ -57,9 +58,10 @@ public class WeatherAdapterRecycleView extends RecyclerView.Adapter<WeatherAdapt
         }
     }
 
-    //Constructor for declare the class, initial class
-    // call onCreateViewHolder return a instance of ViewHolder for  onBindViewHolder
-    @Override
+    /**Constructor for declare the class, initial class
+    * call onCreateViewHolder return a instance of ViewHolder for  onBindViewHolder
+    */
+     @Override
     public MyRecycleViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
         View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.activity_main_recycle_item_today_view, viewGroup, false);
         MyRecycleViewHolder holder = new MyRecycleViewHolder(view);
@@ -71,9 +73,12 @@ public class WeatherAdapterRecycleView extends RecyclerView.Adapter<WeatherAdapt
         convertWeatherData = new ConvertWeatherData();
         settingsPreferenceProvider = new SettingsPreferenceProvider();
         WeatherDataItems weatherDataItems = weatherDataItemsArrayList.get(position);
+        TempureUnit tempureUnitMax = convertWeatherData.ConvertTempUnit(weatherDataItems.getmMaxTemperure(), context);
+
+
         holder.mTextViewItemDayStatus.setText(weatherDataItems.getmDateStatusMain());
         holder.mTextViewItemTimeDayofWeek.setText(weatherDataItems.getmDayofWeek());
-        holder.mTextViewItemTemperature.setText(String.valueOf(convertWeatherData.ConvertTempUnit(weatherDataItems.getmMaxTemperure(),context)));
+        holder.mTextViewItemTemperature.setText(String.valueOf(tempureUnitMax.getTemp()) + " " + tempureUnitMax.getUnitAnotation());
         holder.mTextViewItemDayOfMonth.setText(weatherDataItems.getmDayofMonth());
         holder.mImageViewItem.setImageResource(weatherDataItems.getmImageItem());
     }

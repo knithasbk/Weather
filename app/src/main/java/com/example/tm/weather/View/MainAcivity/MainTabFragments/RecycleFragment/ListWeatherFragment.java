@@ -1,4 +1,4 @@
-package com.example.tm.weather.View.MainAcivity.MainTabFragments;
+package com.example.tm.weather.View.MainAcivity.MainTabFragments.RecycleFragment;
 
 import android.content.Context;
 import android.content.Intent;
@@ -20,9 +20,9 @@ import com.example.tm.weather.Model.SettingsPreferenceProvider;
 import com.example.tm.weather.Model.WeatherDataItems;
 import com.example.tm.weather.Process.SyncDataFromWeatherAPI;
 import com.example.tm.weather.R;
-import com.example.tm.weather.View.DetailsActivity.DetailsActivity;
-import com.example.tm.weather.View.MainAcivity.RecycleViewAdapter.RecyclerViewClickListener;
-import com.example.tm.weather.View.MainAcivity.RecycleViewAdapter.WeatherAdapterRecycleView;
+import com.example.tm.weather.View.Details.DetailsActivity;
+import com.example.tm.weather.View.MainAcivity.MainTabFragments.RecycleFragment.RecycleViewAdapter.RecyclerViewClickListener;
+import com.example.tm.weather.View.MainAcivity.MainTabFragments.RecycleFragment.RecycleViewAdapter.WeatherAdapterRecycleView;
 
 import java.util.ArrayList;
 
@@ -51,11 +51,13 @@ public class ListWeatherFragment extends Fragment implements RecyclerViewClickLi
             savedInstanceState) {
 
         View view = inflater.inflate(R.layout.activity_forecast_fragment, null);
-        Log.d("TEST_TRACE", "End OnCreateView in ForecastFragment.class");
-        Log.i("TEST_TRACE", "End OnCreate function of MainActivity.class");
+        Log.i("TEST_TRACE", "Start OnCreateView function of ListWeatherFragment.class");
 
+    /*  SettingsPreferenceProvider settingsPreferenceProvider = new SettingsPreferenceProvider();
+    *   String tempUnit = settingsPreferenceProvider.getWeatherUnit(getActivity());
+    *   Log.i("TEST_TRACE", "Start OnCreateView() ListWeatherFragment class: Template Unit: " + tempUnit);
+    */
         SQLiteDatabaseProvider sqLiteDatabaseProvider = new SQLiteDatabaseProvider(getActivity());
-
         ArrayList<WeatherDataItems> weatherDataItemsArrayList = new ArrayList<>();
         ArrayDataTest arrayDataTest;
         try {
@@ -80,7 +82,7 @@ public class ListWeatherFragment extends Fragment implements RecyclerViewClickLi
         }
 
         RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.weather_recycler_view);
-        myAdapter = new WeatherAdapterRecycleView(weatherDataItemsArrayList,this,getActivity());
+        myAdapter = new WeatherAdapterRecycleView(weatherDataItemsArrayList, this, getActivity());
 
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(mLayoutManager);
@@ -134,7 +136,6 @@ public class ListWeatherFragment extends Fragment implements RecyclerViewClickLi
         return newCityId;
 
     }
-
 }
 
 

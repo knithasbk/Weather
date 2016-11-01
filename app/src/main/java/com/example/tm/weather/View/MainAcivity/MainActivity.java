@@ -11,8 +11,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.example.tm.weather.R;
-import com.example.tm.weather.View.MainAcivity.MainTabFragments.DiagramFragment;
-import com.example.tm.weather.View.MainAcivity.MainTabFragments.ListWeatherFragment;
+import com.example.tm.weather.View.MainAcivity.MainTabFragments.DiagramFragment.DiagramFragment;
+import com.example.tm.weather.View.MainAcivity.MainTabFragments.RecycleFragment.ListWeatherFragment;
 import com.example.tm.weather.View.SettingsActivity.SettingsActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -23,22 +23,35 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        /*Handle for Toolbar*/
+        /**
+         * Handle for Toolbar
+         * */
         Toolbar mToolbar = (Toolbar) findViewById(R.id.activity_main_toolbar);
         setSupportActionBar(mToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(false);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
-        /*Handle for TabView */
+        /**
+         * Handle for TabView
+         * */
+        handleTabView();
+
+    }
+
+    @Override
+    protected void onResume() {
+        handleTabView();
+        super.onResume();
+    }
+    public void handleTabView(){
         ViewPageAdapter viewPageAdapter = new ViewPageAdapter(getSupportFragmentManager());
-        viewPageAdapter.addFragment(new ListWeatherFragment(), " Weather Data List");
+        viewPageAdapter.addFragment(new ListWeatherFragment(), "Weather");
         viewPageAdapter.addFragment(new DiagramFragment(), "Diagram");
         ViewPager viewPager = (ViewPager) findViewById(R.id.view_pager_main);
         viewPager.setAdapter(viewPageAdapter);
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);
         tabLayout.setupWithViewPager(viewPager);
         Log.i("TEST_TRACE", "End onCreate() at MainActivity.class");
-
 
     }
 
@@ -55,13 +68,14 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         Log.i("TEST_TRACE", "Start onOptionsItemSelected function of MainActivity.class")
         ;
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so
-        // long
-        // as you specify a parent activity in AndroidManifest.xml.
+        /** Handle action bar item clicks here. The action bar will
+         *  automatically handle clicks on the Home/Up button, so long
+         * as you specify a parent activity in AndroidManifest.xml.
+         */
+
+
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
         if (id == R.id.activity_main_action_settings) {
             Intent intent = new Intent(this, SettingsActivity.class);
             startActivity(intent);

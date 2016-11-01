@@ -55,8 +55,7 @@ public class GetWeatherDataDetailsFromJSONObjectAndStore {
     *
     */
     public void execute() {
-        context.deleteDatabase(WeatherFinalStaticData.WeatherEntry.DATABASE_NAME);
-        context.deleteDatabase(WeatherFinalStaticData.LocationEntry.DATABASE_NAME);
+
         Log.i("TEST_TRACE", " Start execute() at  ParseWeatherDataDetailsFromJSONObject ");
         new DơwnloadJSONString().execute(String.valueOf(cityId));
         Log.i("TEST_TRACE", " End execute() at  ParseWeatherDataDetailsFromJSONObject ");
@@ -94,11 +93,12 @@ public class GetWeatherDataDetailsFromJSONObjectAndStore {
             locationDataItems = new LocationDataItems(cityId, cityName, countryName, cityLon, cityLat);
 
 
+            context.deleteDatabase(WeatherFinalStaticData.LocationEntry.DATABASE_NAME);
             sqLiteDatabaseProvider.addLocationRow(locationDataItems);
             /*Get Weather data and store to Database*/
             JSONArray jsonArray = jsonObjectMain.getJSONArray(WeatherFinalStaticData.JSON_WEATHER_LIST_PARAMETERS);
             /*Get weather item data and add to WeatherItemData*/
-
+            context.deleteDatabase(WeatherFinalStaticData.WeatherEntry.DATABASE_NAME);
             for (int i = 0; i < jsonArray.length(); i++) {
                 Log.d("TEST_TRACE", "ParseWeatherDataDetailsFromJSONObject : " + String.valueOf(i));
                 JSONObject jsonObjectWeatherDetails = jsonArray.getJSONObject(i);

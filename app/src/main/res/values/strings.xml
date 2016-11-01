@@ -32,7 +32,7 @@
         <item>5332921</item>
 
     </string-array>
-
+    <string name="facebook_app_id">1281186041932512</string>
     <string name="app_name">Weather</string>
     <string name="detals_weather_name">Details Weather</string>
     <string name="action_bar_setting">Settings</string>

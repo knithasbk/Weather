@@ -2,8 +2,8 @@
 <resources
     >
 
-    <color name="colorPrimaryDark">#292828</color>
-    <color name="colorPrimary">#3c3c40</color>
+    <color name="colorPrimaryDark">#035e00</color>
+    <color name="colorPrimary">#0d9e00</color>
 
     <color name="colorPrimary1">#d71f0e</color>
     <color name="colorPrimaryDark1">#040741</color>
@@ -28,10 +28,6 @@
     <color name="white2">#ededed</color>
     <color name="white3">#9f9f9f</color>
     <color name="white4">#7c7b7b</color>
-
-
-
-
 
     <color name="pink">#d414b7</color>
     <color name="pink1">#c6d414b7</color>
