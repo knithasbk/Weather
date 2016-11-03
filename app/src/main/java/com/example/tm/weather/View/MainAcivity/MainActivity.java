@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.example.tm.weather.Model.SettingsPreferenceProvider;
 import com.example.tm.weather.R;
 import com.example.tm.weather.View.MainAcivity.MainTabFragments.DiagramFragment.DiagramFragment;
 import com.example.tm.weather.View.MainAcivity.MainTabFragments.RecycleFragment.ListWeatherFragment;
@@ -31,6 +32,8 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(false);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
+
+
         /**
          * Handle for TabView
          * */
@@ -43,7 +46,8 @@ public class MainActivity extends AppCompatActivity {
         handleTabView();
         super.onResume();
     }
-    public void handleTabView(){
+
+    public void handleTabView() {
         ViewPageAdapter viewPageAdapter = new ViewPageAdapter(getSupportFragmentManager());
         viewPageAdapter.addFragment(new ListWeatherFragment(), "Weather");
         viewPageAdapter.addFragment(new DiagramFragment(), "Diagram");

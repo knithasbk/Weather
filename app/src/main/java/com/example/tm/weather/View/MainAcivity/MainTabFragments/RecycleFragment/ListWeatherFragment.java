@@ -53,10 +53,10 @@ public class ListWeatherFragment extends Fragment implements RecyclerViewClickLi
         View view = inflater.inflate(R.layout.activity_forecast_fragment, null);
         Log.i("TEST_TRACE", "Start OnCreateView function of ListWeatherFragment.class");
 
-    /*  SettingsPreferenceProvider settingsPreferenceProvider = new SettingsPreferenceProvider();
-    *   String tempUnit = settingsPreferenceProvider.getWeatherUnit(getActivity());
-    *   Log.i("TEST_TRACE", "Start OnCreateView() ListWeatherFragment class: Template Unit: " + tempUnit);
-    */
+        /**  SettingsPreferenceProvider settingsPreferenceProvider = new SettingsPreferenceProvider();
+         *   String tempUnit = settingsPreferenceProvider.getWeatherUnit(getActivity());
+         *   Log.i("TEST_TRACE", "Start OnCreateView() ListWeatherFragment class: Template Unit: " + tempUnit);
+         */
         SQLiteDatabaseProvider sqLiteDatabaseProvider = new SQLiteDatabaseProvider(getActivity());
         ArrayList<WeatherDataItems> weatherDataItemsArrayList = new ArrayList<>();
         ArrayDataTest arrayDataTest;

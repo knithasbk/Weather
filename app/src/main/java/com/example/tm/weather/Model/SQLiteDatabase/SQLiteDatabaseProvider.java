@@ -70,9 +70,10 @@ public class SQLiteDatabaseProvider extends SQLiteOpenHelper {
                 + WeatherFinalStaticData.WeatherEntry.COLUMN_WIN_SPEED + " REAL NOT NULL, "
                 + WeatherFinalStaticData.WeatherEntry.COLUMN_STATUS_DESCRIPTION + " TEXT NOT NULL, "
                 + WeatherFinalStaticData.WeatherEntry.COLUMN_STATUS_MAIN + " TEXT NOT NULL, "
-                + WeatherFinalStaticData.WeatherEntry.COLUMN_LOC_ID_SYNC + " INTEGER, "
-                + "FOREIGN KEY ( " + WeatherFinalStaticData.WeatherEntry.COLUMN_LOC_ID_SYNC + " ) REFERENCES " + WeatherFinalStaticData.LocationEntry.DATABASE_NAME +
-                "( " + WeatherFinalStaticData.LocationEntry.ID + " ), UNIQUE (" + WeatherFinalStaticData.WeatherEntry.COLUMN_LOC_ID_SYNC + ") ON CONFLICT REPLACE);";
+                + WeatherFinalStaticData.WeatherEntry.COLUMN_LOC_ID_SYNC + " INTEGER) ";
+
+        /**+ "FOREIGN KEY ( " + WeatherFinalStaticData.WeatherEntry.COLUMN_LOC_ID_SYNC + " ) REFERENCES " + WeatherFinalStaticData.LocationEntry.DATABASE_NAME +
+                "( " + WeatherFinalStaticData.LocationEntry.ID + " ), UNIQUE (" + WeatherFinalStaticData.WeatherEntry.COLUMN_LOC_ID_SYNC + ") ON CONFLICT REPLACE);"; */
 
 
         db.execSQL(CREATE_WEATHER_DATABASE);
@@ -91,7 +92,7 @@ public class SQLiteDatabaseProvider extends SQLiteOpenHelper {
     }
 
     /**
-     * open database
+     * Open database
      */
 
     public void addWeatherRow(WeatherDataItems weatherDataItems) {

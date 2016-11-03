@@ -50,6 +50,7 @@ public class SharingActivity extends Activity {
         }
     };
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -81,8 +82,10 @@ public class SharingActivity extends Activity {
                 nextActivity(newProfile);
             }
         };
+
         accessTokenTracker.startTracking();
         profileTracker.startTracking();
+
 
 
         List<String> permission = Arrays.asList("publish_actions");
@@ -126,6 +129,13 @@ public class SharingActivity extends Activity {
     public void shareImage() {
         System.out.println("Share Image method ");
 
+    }
+
+    @Override
+    protected void onDestroy() {
+        accessTokenTracker.stopTracking();
+        profileTracker.stopTracking();
+        super.onDestroy();
     }
 }
 

@@ -86,6 +86,13 @@ public class DetailsActivity extends AppCompatActivity {
         super.onResume();
     }
 
+    @Override
+    protected void onRestart() {
+        HandleDetailsFragment();
+
+        super.onRestart();
+    }
+
     public void HandleDetailsFragment() {
         Bundle bundle = getIntent().getExtras();
         int position = bundle.getInt("POSITION");

@@ -1,5 +1,8 @@
 package com.example.tm.weather;
 
+import com.example.tm.weather.Model.SettingsPreferenceProvider;
+import com.example.tm.weather.View.MainAcivity.MainActivity;
+
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -12,6 +15,8 @@ import static org.junit.Assert.*;
 public class ExampleUnitTest {
     @Test
     public void addition_isCorrect() throws Exception {
+
         assertEquals(4, 2 + 2);
+
     }
 }

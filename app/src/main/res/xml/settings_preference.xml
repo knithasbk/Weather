@@ -24,4 +24,12 @@
         android:summary="Choose your location"
         android:key="location_multi"
         />
+    <MultiSelectListPreference
+        android:title="Diagram"
+        android:key="diagram"
+        android:summary="Choose attribute "
+        android:entryValues="@array/diagram_value"
+        android:entries="@array/diagram_entries"
+        />
+
 </PreferenceScreen>

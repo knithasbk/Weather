@@ -30,7 +30,19 @@
         <item>1568733</item>
         <item>5128581</item>
         <item>5332921</item>
+    </string-array>
 
+    <string-array name="diagram_entries">
+        <item>Temperature</item>
+        <item>Humnidity</item>
+        <item>Pressure</item>
+        <item>Wind Speed</item>
+    </string-array>
+    <string-array name="diagram_value">
+        <item>4</item>
+        <item>3</item>
+        <item>7</item>
+        <item>8</item>
     </string-array>
     <string name="facebook_app_id">1281186041932512</string>
     <string name="app_name">Weather</string>
